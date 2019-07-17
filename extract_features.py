@@ -56,8 +56,12 @@ model = VGG16(weights="imagenet", include_top=False)
 
 # initialize the HDF5 dataset writer, then store the class label
 # names in the dataset
-dataset = HDF5DatasetWriter((len(imagePaths), 512 * 7 * 7),
-	args["output"], dataKey="features", bufSize=args["buffer_size"])
+dataset = HDF5DatasetWriter(
+	(len(imagePaths), 512 * 7 * 7),
+	args["output"],
+	dataKey="features",
+	bufSize=args["buffer_size"]
+)
 dataset.storeClassLabels(le.classes_)
 
 # initialize the progress bar
