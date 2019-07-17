@@ -14,7 +14,7 @@ from keras.applications import imagenet_utils
 from keras.preprocessing.image import img_to_array
 from keras.preprocessing.image import load_img
 from sklearn.preprocessing import LabelEncoder
-from feature_extraction.pyimagesearch.io import HDF5DatasetWriter
+from feature_extraction.hdf5datasetwriter import HDF5DatasetWriter
 from imutils import paths
 import numpy as np
 import progressbar
