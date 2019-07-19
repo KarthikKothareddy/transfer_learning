@@ -4,6 +4,7 @@ import os
 
 
 class HDF5DatasetWriter:
+
 	def __init__(self, dims, outputPath, dataKey="images",
 		bufSize=1000):
 		# check to see if the output path exists, and if so, raise
@@ -17,10 +18,16 @@ class HDF5DatasetWriter:
 		# one to store the images/features and another to store the
 		# class labels
 		self.db = h5py.File(outputPath, "w")
-		self.data = self.db.create_dataset(dataKey, dims,
-			dtype="float")
-		self.labels = self.db.create_dataset("labels", (dims[0],),
-			dtype="int")
+		self.data = self.db.create_dataset(
+			dataKey,
+			dims,
+			dtype="float"
+		)
+		self.labels = self.db.create_dataset(
+			"labels",
+			(dims[0],),
+			dtype="int"
+		)
 
 		# store the buffer size, then initialize the buffer itself
 		# along with the index into the datasets
@@ -48,7 +55,8 @@ class HDF5DatasetWriter:
 	def storeClassLabels(self, classLabels):
 		# create a dataset to store the actual class label names,
 		# then store the class labels
-		dt = h5py.special_dtype(vlen=str) # `vlen=unicode` for Py2.7
+		# `vlen=unicode` for Py2.7
+		dt = h5py.special_dtype(vlen=str)
 		labelSet = self.db.create_dataset("label_names",
 			(len(classLabels),), dtype=dt)
 		labelSet[:] = classLabels
