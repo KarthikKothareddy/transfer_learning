@@ -1,10 +1,10 @@
 # USAGE
 # python extract_features.py --dataset ../datasets/animals/images \
-# 	--output ../datasets/animals/hdf5/animals_features.hdf5
+# 	--output ../datasets/animals/hdf5/flowers_features.hdf5
 # python extract_features.py --dataset ../datasets/caltech-101/images \
-# 	--output ../datasets/caltech-101/hdf5/animals_features.hdf5
+# 	--output ../datasets/caltech-101/hdf5/caltech_features.hdf5
 # python extract_features.py --dataset ../datasets/flowers17/images \
-#	--output ../datasets/flowers17/hdf5/animals_features.hdf5
+#	--output ../datasets/flowers17/hdf5/flowers_features.hdf5
 
 import sys
 sys.path.append("..")
